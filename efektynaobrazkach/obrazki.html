@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Efekty obrazu</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <h2>Efekty na obrazach</h2>
+    </header>
+    <div class="glowny">
+        <section class="lewygorny">
+        <img src="pszczola.jpg" id="pszczolka" alt="pszczola na fioletowym kwiatku">
+        <form>
+            
+                <input type="radio" id="Blur" name="opcja">
+                <label>
+            Blur
+            </label>
+            <br>
+            <label>
+                <input type="radio" id="Sepia" name="opcja">
+            Sepia
+            </label>
+            <br>
+            <label>
+            <input type="radio" id="Negatyw" name="opcja">
+            Negatyw
+            </label>
+            <br>
+            <button type="button" onclick="pszczola()">Zastosuj</button>
+        </form>
+        </section>
+        <div class="nadol">
+            <section class="prawygorny">
+                <img src="pomarancza.jpg" id="pomarancza" alt="drzewo pomarańczy"><br>
+                <button type="button" onclick="kolorowy()">Kolorowy</button>
+                <button type="button" onclick="czarnobialy()">Czarno-biały</button>
+            </section>
+        </div>
+            <section class="lewydolny">
+                <img src="owoce.jpg" id="owoce" alt="Kosz pełen owoców">
+                <input type="range" id="ilosc1" min="0" max="100" value="100">
+                <button type="button" onclick="przezroczystosc()">Zastosuj</button>
+            </section>
+            <section class="prawydolny">
+                <img src="zolw.jpg" id="zolw1" alt="Żółw w wodzie">
+                <input type="range" id="ilosc2" min="0" max="250">
+                <button type="button" onclick="jasnosc()">Zastosuj</button>
+            </section>
+        </div>
+    <footer>
+        <p><a href="http://www.css.com/" target="_blank">Zobacz inne efekty obrazu</a></p>
+        <p>Stronę wykonał: Kamil Uciechowski</p>
+    </footer>
+
+    <script lang="JavaScript">
+        function pszczola()
+        {
+            var pszczola = document.getElementById('pszczolka');
+            var Blur1 = document.getElementById('Blur').checked;
+            var Sepia1 = document.getElementById('Sepia').checked;
+            var Negatyw1 = document.getElementById("Negatyw").checked;
+            if(Blur1)
+            {
+                pszczola.style.filter = 'blur(5px) ';
+            }
+            else if(Sepia1)
+            {
+                pszczola.style.filter = 'sepia(100%) ';
+            }
+            else if(Negatyw1)
+            {
+                pszczola.style.filter = 'invert(100%)';
+            }
+        }
+
+        function kolorowy()
+        {
+            var pomarancza1 = document.getElementById('pomarancza');
+            pomarancza1.style.filter = 'none';
+        } 
+
+        function czarnobialy()
+        {
+            var pomarancza1 = document.getElementById('pomarancza');
+            pomarancza1.style.filter = 'grayscale(100%)';
+        }
+
+        function przezroczystosc()
+        {
+            var owoce = document.getElementById('owoce');
+            var ilosc = document.getElementById('ilosc1').value;
+            owoce.style.filter = `opacity(${ilosc}%)`;
+        }
+
+         function jasnosc()
+        {
+            var zolw = document.getElementById('zolw1');
+            var ilosc = document.getElementById('ilosc2').value;
+            zolw.style.filter = `brightness(${ilosc}%)`;
+        }
+
+    </script>
+
+</body>
+</html>
